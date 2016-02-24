@@ -23,7 +23,7 @@ sudo apt-get install m4
 
 download gmp from https://gmplib.org/
 
-GMP/gmp-6.1.0
+cd gmp-6.1.0
 
 ./configure
 
