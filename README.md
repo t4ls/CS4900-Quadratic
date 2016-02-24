@@ -19,7 +19,8 @@ Get example data
 
 ##How to Install GMP
 sudo apt-get install m4
-cd GMP/gmp-6.1.0
+download gmp from https://gmplib.org/
+GMP/gmp-6.1.0
 ./configure
 make
 make check
