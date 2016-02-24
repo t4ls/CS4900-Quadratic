@@ -18,12 +18,19 @@ Output Values:       One solution, double soultion, or no solution
 Get example data
 
 ##How to Install GMP
+
 sudo apt-get install m4
+
 download gmp from https://gmplib.org/
+
 GMP/gmp-6.1.0
+
 ./configure
+
 make
+
 make check
+
 make install
 
 #How to run example
