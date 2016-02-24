@@ -1,0 +1,13 @@
+1.) User is prompted to insert values for a,b,c
+
+2.) User is able to enter values for a,b,c
+
+3.) User is alerted if any of a,b,c are invalid
+
+4.) Quadsolver uses quadratic equation to calculate roots
+
+5.) User is prompted if there is any problem calculating roots
+
+6.) User is prompted wether there is one solution, no solution or a double solution
+
+7.) User is prompted with the numberical answer(s) given their a,b,c
