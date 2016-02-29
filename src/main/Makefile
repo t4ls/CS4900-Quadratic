@@ -1,8 +1,8 @@
 all: quadsolver
 
-    
-quadsolver: quadsolver.c
-	gcc quadsolver.c -o quadsolver.out
-    
+
+quadsolver: quad_solver.c
+	gcc quad_solver.c -o quad_solver.out -lgmp -lm
+
 clean:
-	rm quadsolver.out
+	rm quad_solver.out
