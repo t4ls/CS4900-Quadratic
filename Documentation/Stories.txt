@@ -11,3 +11,5 @@
 6.) User is prompted wether there is one solution, no solution or a double solution
 
 7.) User is prompted with the numberical answer(s) given their a,b,c
+
+8.) User able to install using a script
