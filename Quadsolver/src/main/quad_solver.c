@@ -53,22 +53,22 @@ int main(int argc, char *argv[])
 
 
 
-
   // User is alerted if any of a,b,c are invalid
 
   // Quadsolver uses quadratic equation to calculate roots
   mpf_t d1,d2, number;
   mpf_init(d1);
   mpf_init(d2);
+  mpf_init(determinant);
 
   mpf_set_d(number, -4);
-
+  
   //determinant=b*b-4*a*c;
   mpf_mul (d1, b, b);
   mpf_mul (d2, a, c);
   mpf_mul (d2, number, d2);
   mpf_add (determinant, d1, d2);
-
+  
   mpf_t sq,num1,num2,denom;
   mpf_init(sq);
   mpf_init(num1);
@@ -78,30 +78,48 @@ int main(int argc, char *argv[])
   mpf_set_d(number, 2);
   mpf_mul (denom, number, a);
 
-  if (determinant>0)
+  mpf_set_d(number, 0);
+  int type = mpf_cmp(determinant,number);
+  mpf_set_d(number, 2);
+
+  if (type>0)
   {
       // doubleSoultion1= (-b+sqrt(determinant))/(2*a);
       // doubleSoultion2= (-b-sqrt(determinant))/(2*a);
 
       mpf_sqrt (sq, determinant);
       mpf_neg (b, b);
-
+      
       mpf_add (num1, b, sq);
       mpf_sub (num2, b, sq);
-
+      
+      mpf_div (doubleSoultion1, num1, denom);
+      mpf_div (doubleSoultion2, num2, denom);
       // mpf_cdiv_q(doubleSoultion1, num1, denom);
       // mpf_cdiv_q(doubleSoultion2, num2, denom);
 
   }
-  // else if (determinant==0)
-  // {
-  //   doubleSoultion1 = doubleSoultion2 = -b/(2*a);
-  // }
-  // else
-  // {
-  //   realSolution= -b/(2*a);
-  //   imaginarySolution = sqrt(-determinant)/(2*a);
-  // }
+  else if (type==0)
+  {
+    //doubleSoultion1 = doubleSoultion2 = -b/(2*a);
+    mpf_mul (denom, number, a);
+    mpf_neg (b, b);
+    mpf_div (doubleSoultion1, b, denom);  
+    mpf_div (doubleSoultion2, b, denom);  
+  }
+  else
+  {
+    //realSolution= -b/(2*a);
+    //imaginarySolution = sqrt(-determinant)/(2*a);
+    mpf_neg (b, b);
+    mpf_mul (denom, number, a);
+    mpf_div (realSolution, b, denom);  
+
+    mpf_neg (determinant, determinant);
+    mpf_sqrt (sq, determinant);
+    mpf_div (imaginarySolution, sq, denom);  
+      
+  }
 
   // User is prompted if there is any problem calculating roots
 
